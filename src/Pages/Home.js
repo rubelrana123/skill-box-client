@@ -6,11 +6,11 @@ const Home = () => {
   return (
     <div>
       <section className="">
-	<div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
-		<div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
-			<img src={svgImg} alt="" className="object-contain h-[500px]" />
+	<div className="container flex flex-col justify-center px-16 p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
+		<div className="flex items-center justify-center  lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
+			<img src={svgImg} alt="" className="object-contain h-[550px]" />
 		</div>
-		<div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
+		<div className="flex flex-col justify-start p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
 			<h1 className="text-5xl font-bold leading-none sm:text-6xl">Grow
 				<span className="dark:text-violet-400">Your</span>Skill
 			</h1>

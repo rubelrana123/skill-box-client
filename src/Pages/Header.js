@@ -4,8 +4,8 @@ import logo from '../asserts/logo1.png'
 const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	return (
-		<div className='bg-[#FFF3]'>
-			<div className='px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
+		<div className='bg-[#FFF3] shadow-md'>
+			<div className='px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 ' >
 				<div className='relative flex items-center justify-between'>
 					<NavLink
 						to='/'
@@ -21,7 +21,7 @@ const Header = () => {
 					<ul className='flex items-center hidden space-x-8 lg:flex'>
 						<li>
 							<NavLink
-								to='/home'
+								to='/'
 								aria-label='Home'
 								title='Home'
 								className={({ isActive }) =>
@@ -35,26 +35,40 @@ const Header = () => {
 						</li>
 						<li>
 							<NavLink
-								to='/books'
-								aria-label='Books'
-								title='Books'
+								to='/courses'
+								aria-label='Course'
+								title='Course'
 								className='font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
 							>
-								Books
+								Courses
 							</NavLink>
 						</li>
 						<li>
 							<NavLink
-								to='/about'
-								aria-label='About us'
-								title='About us'
+								to='/blog'
+								aria-label='Blog'
+								title='Blog'
 								className={({ isActive }) =>
 									isActive
 										? 'font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
 										: 'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
 								}
 							>
-								About us
+								Blog
+							</NavLink>
+						</li>
+						<li>
+							<NavLink
+								to='/login'
+								aria-label='Login'
+								title='Login'
+								className={({ isActive }) =>
+									isActive
+										? 'font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+										: 'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+								}
+							>
+								Login
 							</NavLink>
 						</li>
           <div className='flex '>
@@ -91,27 +105,14 @@ const Header = () => {
 										<div>
 											<NavLink
 												to='/'
-												aria-label='proReader'
-												title='proReader'
+												aria-label='Skill'
+												title='Skill'
 												className='inline-flex items-center'
 											>
-												<svg
-													className='w-8 text-deep-purple-accent-400'
-													viewBox='0 0 24 24'
-													strokeLinejoin='round'
-													strokeWidth='2'
-													strokeLinecap='round'
-													strokeMiterlimit='10'
-													stroke='currentColor'
-													fill='none'
-												>
-													<rect x='3' y='1' width='7' height='12' />
-													<rect x='3' y='17' width='7' height='6' />
-													<rect x='14' y='1' width='7' height='6' />
-													<rect x='14' y='11' width='7' height='12' />
-												</svg>
+												<img src={logo} className="h-10" alt="" />
+												
 												<span className='ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase'>
-													proReader
+													Skill Box
 												</span>
 											</NavLink>
 										</div>
@@ -163,18 +164,22 @@ const Header = () => {
 											</li>
 											<li>
 												<NavLink
-													to='/about'
-													aria-label='About Us'
-													title='About Us'
+													to='/courses'
+													aria-label='Courses'
+													title='Courses'
 													className={({ isActive }) =>
 														isActive
 															? 'font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
 															: 'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
 													}
 												>
-													About Us
+													Courses
 												</NavLink>
 											</li>
+										<div className='flex flex-col '>
+										<p>Logo</p>
+										<p className='ml-4'>darkmode</p>
+									</div>
 										</ul>
 									</nav>
 								</div>
