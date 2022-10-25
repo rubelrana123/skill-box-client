@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../contexts/UserContext';
 
 const Login = () => {
+  const {user} = useContext(AuthContext);
+  console.log(user);
 
 const handleForm = (e) => {
  e.preventDefault();

@@ -1,13 +1,52 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../contexts/UserContext';
 
 const Register = () => {
+  const [error,setError] = useState('');
+  const {createUser, verifyEmail} = useContext(AuthContext);
+const handleForm = (e) => {
+ e.preventDefault();
+ const form = e.target;
+ const name = form.username.value;
+ const email = form.email.value;
+ const password = form.password.value;
+ const photoURL = form.photoURL.value;
+ console.log(email, password, name);
+ 
+ createUser(email, password).then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    console.log(user);
+    toast.success('Register SuccessFully',{autoClose : 200});
+    handleVerify();
+    setError('');
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    setError(errorMessage)
+
+    // ..
+  });
+
+}
+
+
+const handleVerify = () =>{
+  return verifyEmail().then(()=> {
+    Toaster.warning("Email Verification Send" , {autoClose : 200})
+  })
+}
+
   return (
     <div>
         <div className='p-12 bg-blue-300'>
       <div className="w-full mx-auto max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
 	<h1 className="text-2xl font-bold text-center">Register</h1>
-	<form   className="space-y-6 ng-untouched ng-pristine ng-valid">
+	<form  onSubmit={handleForm} className="space-y-6 ng-untouched ng-pristine ng-valid">
 		<div className="space-y-1 text-start">
 			<label htmlFor="username" className="block dark:text-black-400">Username</label>
 			<input type="text" name="username" id="username" placeholder="Username" className=" text-black w-full px-4 py-3 rounded-md " />
@@ -23,15 +62,16 @@ const Register = () => {
 		<div className="space-y-1 text-start">
 			<label htmlFor="password" className="block dark:text-white">Password</label>
 			<input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md text-black" />
-			<div className="flex justify-end text-xs dark:text-gray-400">
-				<Link to="/">Forgot Password?</Link>
-			</div>
+			
 		</div>
-		<button className="block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-violet-400">Sign in</button>
+    <div>
+      <p className='text-start text-rose-400'>{error}</p>
+    </div>
+		<button className="block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-violet-400">Register</button>
 	</form>
 	<div className="flex items-center pt-4 space-x-1">
 		<div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
-		<p className="px-3 text-sm dark:text-gray-400">Login with social accounts</p>
+		<p className="px-3 text-sm dark:text-gray-400">Create with social accounts</p>
 		<div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
 	</div>
 	<div className="flex justify-center space-x-4">
@@ -51,8 +91,8 @@ const Register = () => {
 			</svg>
 		</button>
 	</div>
-	<p className="text-xs text-center sm:px-6 dark:text-gray-400">Don't have an account?
-		<Link to="/" className="underline dark:text-gray-100">Sign up</Link>
+	<p className="text-xs text-center sm:px-6 dark:text-gray-400">If you have an account?
+		<Link to="/login" className="underline dark:text-gray-100">Login</Link>
 	</p>
 </div>
     </div>
