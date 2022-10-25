@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <div>
-      <footer className="p-6 dark:bg-gray-800 dark:text-gray-100">
-	<div className="container grid grid-cols-2 mx-auto gap-x-3 gap-y-8 sm:grid-cols-3 md:grid-cols-4">
+      <footer className="p-6 dark:bg-[#0b275a] dark:text-white]">
+	<div className="container grid grid-cols-2 mx-auto gap-x-3 gap-y-8 sm:grid-cols-3 md:grid-cols-4 text-blue-400">
 		<div className="flex flex-col space-y-4">
 			<h2 className="font-medium">Getting started</h2>
-			<div className="flex flex-col space-y-2 text-sm dark:text-gray-400">
+			<div className="flex flex-col space-y-2 text-sm text-white">
 				<Link rel="noopener noreferrer" to="/">Installation</Link>
 				<Link rel="noopener noreferrer" to="/">Release Notes</Link>
 				<Link rel="noopener noreferrer" to="/">Upgrade Guide</Link>
@@ -20,7 +20,7 @@ const Footer = () => {
 		</div>
 		<div className="flex flex-col space-y-4">
 			<h2 className="font-medium">Core Concepts</h2>
-			<div className="flex flex-col space-y-2 text-sm dark:text-gray-400">
+			<div className="flex flex-col space-y-2 text-sm text-white">
 				<Link rel="noopener noreferrer" to="/">Utility-First</Link>
 				<Link rel="noopener noreferrer" to="/">Responsive Design</Link>
 				<Link rel="noopener noreferrer" to="/">Hover, Focus, &amp; Other States</Link>
@@ -32,7 +32,7 @@ const Footer = () => {
 		</div>
 		<div className="flex flex-col space-y-4">
 			<h2 className="font-medium">Customization</h2>
-			<div className="flex flex-col space-y-2 text-sm dark:text-gray-400">
+			<div className="flex flex-col space-y-2 text-sm text-white">
 				<Link rel="noopener noreferrer" to="/">Configuration</Link>
 				<Link rel="noopener noreferrer" to="/">Theme Configuration</Link>
 				<Link rel="noopener noreferrer" to="/">Breakpoints</Link>
@@ -44,7 +44,7 @@ const Footer = () => {
 		</div>
 		<div className="flex flex-col space-y-4">
 			<h2 className="font-medium">Community</h2>
-			<div className="flex flex-col space-y-2 text-sm dark:text-gray-400">
+			<div className="flex flex-col space-y-2 text-sm text-white">
 				<Link rel="noopener noreferrer" to="/">GitHub</Link>
 				<Link rel="noopener noreferrer" to="/">Discord</Link>
 				<Link rel="noopener noreferrer" to="/">Twitter</Link>
