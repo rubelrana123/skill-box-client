@@ -1,8 +1,25 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { NavLink } from 'react-router-dom';
 import logo from '../asserts/logo1.png'
+import { AuthContext } from '../contexts/UserContext';
+import { FaUserSecret } from "react-icons/fa";
 const Header = () => {
+	const {signout, user} = useContext(AuthContext);
+	
+	
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+	const handleLogout = () =>{
+		signout().then(() => {
+      toast.success(" Sign-out successful")
+}).catch((error) => {
+     
+    const errorMessage = error.message;
+   console.log(errorMessage);
+});
+	}
+
 	return (
 		<div className='bg-[#FFF3] shadow-md'>
 			<div className='px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 ' >
@@ -71,6 +88,14 @@ const Header = () => {
 								Blog
 							</NavLink>
 						</li>
+						{user?.uid ?
+						 <>
+						 						<li onClick={handleLogout} className='font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
+							Logout
+						</li>
+						
+						</> : 
+						<>
 						<li>
 							<NavLink
 								to='/login'
@@ -85,24 +110,26 @@ const Header = () => {
 								Login
 							</NavLink>
 						</li>
-						<li>
-							<NavLink
-								to='/register'
-								aria-label='Register'
-								title='Register'
-								className={({ isActive }) =>
-									isActive
-										? 'font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
-										: 'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
-								}
-							>
-								Register
-							</NavLink>
-						</li>
-          <div className='flex '>
-            <p>Logo</p>
-            <p className='ml-4'>darkmode</p>
-          </div>
+						</>
+						}
+						
+
+					<div>
+				<span  className="group relative">
+      <span
+			
+			className =  {` ${user?.displayName && `pointer-events-none absolute -top-10 right-1/2 -translate-x-1/2  bg-black px-2 py-1 text-white opacity-0 transition before:absolute before:left-1/2 before:top-full before:-translate-x-1/2 before:border-4 before:border-transparent group-hover:opacity-100`}`}
+			
+			
+	>
+      {user?.displayName ? <p>{user.displayName} </p>  : " " }
+      </span>
+       <>
+			       {user?.photoURL ?
+					  <img className='rounded-[50%] h-10' src={user?.photoURL} alt="userPhoto"/>  : <FaUserSecret className='h-8'></FaUserSecret> }
+			 </>
+    </span>
+					</div>
 					</ul>
 					<div className='lg:hidden'>
 						<button

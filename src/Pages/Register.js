@@ -5,7 +5,8 @@ import { AuthContext } from '../contexts/UserContext';
 
 const Register = () => {
   const [error,setError] = useState('');
-  const {createUser, verifyEmail} = useContext(AuthContext);
+  const {createUser, verifyEmail, profileUpdate} = useContext(AuthContext);
+  console.log(verifyEmail);
 const handleForm = (e) => {
  e.preventDefault();
  const form = e.target;
@@ -20,8 +21,14 @@ const handleForm = (e) => {
     const user = userCredential.user;
     console.log(user);
     toast.success('Register SuccessFully',{autoClose : 200});
-    handleVerify();
+  
     setError('');
+    handleProfileUpdate(name, photoURL)
+    form.reset();
+     verifyEmail().then(()=> {
+    toast.success("Email Verification Send" , {autoClose : 500})
+  })
+
     // ...
   })
   .catch((error) => {
@@ -34,11 +41,12 @@ const handleForm = (e) => {
 
 }
 
-
-const handleVerify = () =>{
-  return verifyEmail().then(()=> {
-    Toaster.warning("Email Verification Send" , {autoClose : 200})
-  })
+const handleProfileUpdate = (name , photoURL) => {
+  const profile = {
+    displayName: name, 
+    photoURL:  photoURL,
+  }
+  profileUpdate(profile);
 }
 
   return (
