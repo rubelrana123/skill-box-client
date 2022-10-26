@@ -5,7 +5,7 @@ const Home = () => {
 
   return (
     <div>
-      <section className="bg-gray-300">
+      <section className="bg-blue-300">
 	<div className="container flex flex-col justify-center px-16 p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
 		<div className="flex items-center justify-center  lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
 			<img src={svgImg} alt="" className="object-contain h-[550px]" />

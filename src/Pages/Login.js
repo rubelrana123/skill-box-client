@@ -1,3 +1,4 @@
+import { fromJSON } from 'postcss';
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
@@ -5,7 +6,8 @@ import { AuthContext } from '../contexts/UserContext';
 
 const Login = () => {
   const [error, setError] = useState("");
-  const {user, signin, googleSignin} = useContext(AuthContext);
+	const [userEmail, setUserEmail] = useState('');
+  const {user, signin, googleSignin, forgetPassword} = useContext(AuthContext);
   console.log(user);
 
 const handleForm = (e) => {
@@ -14,10 +16,13 @@ const handleForm = (e) => {
  const email = form.email.value;
  const password = form.password.value;
  console.log(email, password);
+
  signin(email, password).then((userCredential) => {
     const user = userCredential.user;
     console.log(user);
 		toast.success("Login Successfully..")
+		form.reset();
+		setError("")
   
   })
   .catch((error) => {
@@ -27,6 +32,7 @@ const handleForm = (e) => {
   });
 
 }
+
 
 	const handleGoogleSignIn = () =>{
 		googleSignin()
@@ -40,9 +46,29 @@ const handleForm = (e) => {
 				// Handle Errors here.
 				const errorCode = error.code;
 				const errorMessage = error.message;
+				
 				 console.log(errorMessage);
 				// ...
 			});
+	}
+
+	const handleBlurEmail = (e) =>{
+		const email = e.target.value;
+		// console.log("email got ",email);
+		setUserEmail(email);
+	}
+	const handleForgetPassword = () =>{
+
+		forgetPassword(userEmail).then(() => {
+       toast.success("  Password reset email sent!", {autoClose : 200})
+        // .. 
+        })
+      .catch((error) => {
+       
+        const errorMessage = error.message;
+				console.log(errorMessage);
+        // ..
+      });
 	}
   
   return (
@@ -52,16 +78,16 @@ const handleForm = (e) => {
 	<form className="space-y-6  " onSubmit={handleForm}>
 		<div className="space-y-1 text-start">
 			<label htmlFor="email" className="block dark:text-black-400">Email</label>
-			<input type="email" name="email" id="email" placeholder="email" className=" text-black w-full px-4 py-3 rounded-md " required />
+			<input onBlur={handleBlurEmail} type="email" name="email" id="email" placeholder="email" className=" text-black w-full px-4 py-3 rounded-md " required />
 		</div>
 		<div className="space-y-1 text-start">
 			<label htmlFor="password" className="block dark:text-white">Password</label>
 			<input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md text-black" required />
 			<div>
-				<p>{error}</p>
+				<p className='text-red-400'>{error}</p>
 			</div>
 			<div className="flex justify-end text-xs dark:text-gray-400">
-				<Link to="/">Forgot Password?</Link>
+				<p className='cursor-pointer ' onClick={handleForgetPassword}>Forgot Password?</p>
 			</div>
 		</div>
 		<button className="block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-violet-400">Login</button>

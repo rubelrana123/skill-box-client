@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
- import {createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth' 
+ import {createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth' 
 import app from '../Firebase/firebase.confiq';
 const auth = getAuth(app);
 export const  AuthContext = createContext();
@@ -20,6 +20,9 @@ const UserContext = ({children}) => {
   const verifyEmail = () =>{
     return sendEmailVerification(auth.currentUser);
   };
+  const forgetPassword = (email) =>{
+    return sendPasswordResetEmail(auth, email);
+  }
 const profileUpdate = (profile) => {
   return updateProfile(auth.currentUser, profile)
 }
@@ -37,7 +40,7 @@ useEffect (() => {
 
 return () => unSubscribe();
 }, [])
-  const AuthInfo = {user, createUser, verifyEmail, profileUpdate, signin,signout, googleSignin}
+  const AuthInfo = {user, createUser, verifyEmail, profileUpdate, signin,signout, googleSignin, forgetPassword}
   return (
     <div>
       <AuthContext.Provider value = {AuthInfo}>

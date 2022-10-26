@@ -41,7 +41,7 @@ const Header = () => {
 								to='/'
 								aria-label='Home'
 								title='Home'
-								className={({ isActive }) =>
+                className={({ isActive }) =>
 									isActive
 										? 'font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
 										: 'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
@@ -55,7 +55,11 @@ const Header = () => {
 								to='/courses'
 								aria-label='Course'
 								title='Course'
-								className='font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+								className={({ isActive }) =>
+									isActive
+										? 'font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+										: 'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+								}
 							>
 								Courses
 							</NavLink>
@@ -90,7 +94,7 @@ const Header = () => {
 						</li>
 						{user?.uid ?
 						 <>
-						 						<li onClick={handleLogout} className='font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
+						 						<li onClick={handleLogout} className='font-semibold text-xl cursor-pointer  tracking-wide text-white bg-blue-600 p-2 rounded-md transition-colors duration-200 hover:text-deep-purple-accent-400, outline-none'>
 							Logout
 						</li>
 						
@@ -231,9 +235,76 @@ const Header = () => {
 													Courses
 												</NavLink>
 											</li>
-										<div className='flex flex-col '>
-										<p>Logo</p>
-										<p className='ml-4'>darkmode</p>
+																<li>
+							<NavLink
+								to='/faq'
+								aria-label='FAQ'
+								title='FAQ'
+								className={({ isActive }) =>
+									isActive
+										? 'font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+										: 'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+								}
+							>
+								FAQ
+							</NavLink>
+						</li>
+						<li>
+							<NavLink
+								to='/blog'
+								aria-label='Blog'
+								title='Blog'
+								className={({ isActive }) =>
+									isActive
+										? 'font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+										: 'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+								}
+							>
+								Blog
+							</NavLink>
+						</li>
+						{user?.uid ?
+						 <>
+						 						<li onClick={handleLogout} className='font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
+							Logout
+						</li>
+						
+						</> : 
+						<>
+						<li>
+							<NavLink
+								to='/login'
+								aria-label='Login'
+								title='Login'
+								className={({ isActive }) =>
+									isActive
+										? 'font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+										: 'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+								}
+							>
+								Login
+							</NavLink>
+						</li>
+						</>
+						}
+						
+
+					<div className='flex justify-center'>
+				<span  className="group relative">
+      <span
+			
+			className =  {` ${user?.displayName && `pointer-events-none absolute -top-10 right-1/2 -translate-x-1/2  bg-black px-2 py-1 text-white opacity-0 transition before:absolute before:left-1/2 before:top-full before:-translate-x-1/2 before:border-4 before:border-transparent group-hover:opacity-100`}`}
+			
+			
+	>
+      {user?.displayName ? <p>{user.displayName} </p>  : " " }
+      </span>
+       <>
+			       {user?.photoURL ?
+					  <img className='rounded-[50%] h-10' src={user?.photoURL} alt="userPhoto"/>  : <FaUserSecret className='h-8'></FaUserSecret> }
+			 </>
+    </span>
+					
 									</div>
 										</ul>
 									</nav>
