@@ -47,7 +47,7 @@ const Checkout = () => {
 
                                  <button onClick={handleCheckout} >
                   
-              <button className="btn  mt-2 bg-blue-500  w-full px-12 py-3   rounded-xl text-white  bg-transparent font-semibold border border-white-600 rounded  hover:bg-blue-600 text-xl hover:outline-4 hover:outline-neutral-600 hover:text-black-600  active:translate-y-0">Enroll Course</button>
+              <button className="btn  mt-2 bg-blue-500  w-full px-12 py-3 text-white">Enroll Course</button>
          </button>
                     </section>
                 </form>
