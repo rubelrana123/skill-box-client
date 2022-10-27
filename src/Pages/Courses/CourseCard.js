@@ -18,7 +18,7 @@ const CourseCard = ({course}) => {
 		<h2 className="text-2xl font-semibold">{title}</h2>
 	</div>
   <Link  to={`/course/${id}`}>
-  <button className='btn mt-2 bg-blue-700  w-full py-2  text-white  bg-transparent font-semibold border border-white-600 rounded  hover:bg-white hover:outline-4 hover:outline-neutral-600 hover:text-blue-700 active:translate-y-0'>
+  <button className='btn mt-2 bg-blue-700  w-full py-2  text-white  bg-transparent font-semibold border border-white-600 rounded   hover:outline-4 hover:outline-neutral-600 hover:bg-blue-500 hover:text-white active:translate-y-0'>
     Details
   </button>
   </Link>

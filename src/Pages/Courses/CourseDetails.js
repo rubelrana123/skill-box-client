@@ -1,10 +1,10 @@
  
 import React from 'react';
 import { FaRegFilePdf, FaStar } from 'react-icons/fa';
-import {   useLoaderData } from 'react-router-dom';
+import {   Link, useLoaderData } from 'react-router-dom';
  
 import Pdf from "react-to-pdf";
-import PrivateRoute from '../../Routes/PrivateRouter';
+
 
  
 const ref = React.createRef();
@@ -12,7 +12,7 @@ const ref = React.createRef();
 const CourseDetails = () => {
   const course = useLoaderData();
   console.log(course);
-  const {title, author, description, info, rating,image} = course;
+  const {title, author, description, info,id, rating,image} = course;
 
   return (
     <div  ref={ref}  >
@@ -41,8 +41,10 @@ const CourseDetails = () => {
         </div>
         <div>
 
-       
-              <button className="btn mt-2 bg-blue-500  w-full py-2  text-white  bg-transparent font-semibold border border-white-600 rounded  hover:bg-blue-600 text-xl hover:outline-4 hover:outline-neutral-600      hover:text-black-600  active:translate-y-0">Premium Access</button>
+         <Link to={`/checkout/${id}`} >
+                  
+              <button className="btn mt-2 bg-blue-500  w-full py-2  text-white  bg-transparent font-semibold border border-white-600 rounded  hover:bg-blue-600 text-xl hover:outline-4 hover:outline-neutral-600 hover:text-black-600  active:translate-y-0">Get Premium Access</button>
+         </Link>
 
 
 

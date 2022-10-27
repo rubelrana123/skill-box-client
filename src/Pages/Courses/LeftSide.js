@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Header from '../Header';
 
 const LeftSide = () => {
   	const [categories, setCategories] = useState([]);
 
 	useEffect(() => {
-		fetch('http://localhost:5000/course')
+		fetch('https://skill-box-server-rubelrana123.vercel.app/course')
 			.then((res) => res.json())
 			.then((data) => setCategories(data));
 	}, []);
 	return (
-		<div>
+ 
+     
+
+   
+    <div >
         <div className='flex flex-col'>
           			{categories.map((category) => (
 
@@ -24,6 +29,7 @@ const LeftSide = () => {
 			))}
         </div>
 		</div>
+    
 	);
 };
 

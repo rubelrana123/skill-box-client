@@ -1,14 +1,16 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import Header from '../Header';
 import LeftSide from './LeftSide';
 
 
 const Courses = () => {
   return (
+    
     <div className=''>
       <div className="grid lg:grid-cols-4 grid-cols-1 lg:gap-4">
 
-    <div className="border w-full selection:">
+    <div className="border w-full">
       
       <LeftSide></LeftSide>
     </div>
@@ -17,6 +19,7 @@ const Courses = () => {
     </div>
 </div>
     </div>
+  
   );
 };
 

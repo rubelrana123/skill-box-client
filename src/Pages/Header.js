@@ -52,7 +52,7 @@ const Header = () => {
 						</li>
 						<li>
 							<NavLink
-								to='/course'
+								to='/courses'
 								aria-label='Course'
 								title='Course'
 								className={({ isActive }) =>
@@ -94,7 +94,7 @@ const Header = () => {
 						</li>
 						{user?.uid ?
 						 <>
-						 						<li onClick={handleLogout} className='font-semibold text-xl cursor-pointer  tracking-wide text-white bg-blue-600 p-2 rounded-md transition-colors duration-200 hover:text-deep-purple-accent-400, outline-none'>
+						 						<li onClick={handleLogout} className='font-semibold text-xl cursor-pointer  tracking-wide text-black   p-2 rounded-md transition-colors duration-200 hover:text-deep-purple-accent-400, outline-none'>
 							Logout
 						</li>
 						
@@ -122,15 +122,15 @@ const Header = () => {
 				<span  className="group relative">
       <span
 			
-			className =  {` ${user?.displayName && `pointer-events-none absolute -top-10 right-1/2 -translate-x-1/2  bg-black px-2 py-1 text-white opacity-0 transition before:absolute before:left-1/2 before:top-full before:-translate-x-1/2 before:border-4 before:border-transparent group-hover:opacity-100`}`}
+			className =  {` ${user?.displayName && `pointer-events-none absolute -bottom-10 right-1/2 -translate-x-1/2  bg-black px-2 py-1 text-white opacity-0 transition before:absolute before:left-1/2 before:top-full before:-translate-x-1/2 before:border-4 before:border-transparent group-hover:opacity-100`}`}
 			
 			
 	>
-      {user?.displayName ? <p>{user.displayName} </p>  : " " }
+       {user?.displayName ? <p>{user.displayName} </p>  : <FaUserSecret></FaUserSecret> }
       </span>
-       <>
-			       {user?.photoURL ?
-					  <img className='rounded-[50%] h-10' src={user?.photoURL} alt="userPhoto"/>  : <FaUserSecret className='h-8'></FaUserSecret> }
+            <>
+			       { user?.photoURL ?
+					  <img className='rounded-[50%] h-10' src={user?.photoURL} alt="userPhoto"/>  : " " }
 			 </>
     </span>
 					</div>
@@ -207,23 +207,10 @@ const Header = () => {
 													Home
 												</NavLink>
 											</li>
+											
 											<li>
 												<NavLink
-													to='/books'
-													aria-label='Books'
-													title='Books'
-													className={({ isActive }) =>
-														isActive
-															? 'font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
-															: 'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
-													}
-												>
-													Books
-												</NavLink>
-											</li>
-											<li>
-												<NavLink
-													to='/course'
+													to='/courses'
 													aria-label='Courses'
 													title='Courses'
 													className={({ isActive }) =>
@@ -297,10 +284,10 @@ const Header = () => {
 			
 			
 	>
-      {user?.displayName ? <p>{user.displayName} </p>  : " " }
+      {user?.displayName ? <p>{user.displayName} </p>  : <FaUserSecret></FaUserSecret> }
       </span>
        <>
-			       {user?.photoURL ?
+			       { user?.photoURL ?
 					  <img className='rounded-[50%] h-10' src={user?.photoURL} alt="userPhoto"/>  : <FaUserSecret className='h-8'></FaUserSecret> }
 			 </>
     </span>
