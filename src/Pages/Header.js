@@ -52,7 +52,7 @@ const Header = () => {
 						</li>
 						<li>
 							<NavLink
-								to='/courses'
+								to='/course'
 								aria-label='Course'
 								title='Course'
 								className={({ isActive }) =>
@@ -158,7 +158,7 @@ const Header = () => {
 							</svg>
 						</button>
 						{isMenuOpen && (
-							<div className='absolute top-0 left-0 w-full'>
+							<div className='z-10 absolute top-0 left-0 w-full'>
 								<div className='p-5 bg-white border rounded shadow-sm'>
 									<div className='flex items-center justify-between mb-4'>
 										<div>
@@ -223,7 +223,7 @@ const Header = () => {
 											</li>
 											<li>
 												<NavLink
-													to='/courses'
+													to='/course'
 													aria-label='Courses'
 													title='Courses'
 													className={({ isActive }) =>

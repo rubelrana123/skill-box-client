@@ -1,16 +1,20 @@
 import { fromJSON } from 'postcss';
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/UserContext';
 
 const Login = () => {
   const [error, setError] = useState("");
 	const [userEmail, setUserEmail] = useState('');
+	const location = useLocation();
+	const navigate = useNavigate();
+	const from = location?.state?.from.pathname || "/"
   const {user, signin, googleSignin, forgetPassword} = useContext(AuthContext);
   console.log(user);
 
 const handleForm = (e) => {
+
  e.preventDefault();
  const form = e.target;
  const email = form.email.value;
@@ -20,6 +24,7 @@ const handleForm = (e) => {
  signin(email, password).then((userCredential) => {
     const user = userCredential.user;
     console.log(user);
+		navigate(from, {replace : true})
 		toast.success("Login Successfully..")
 		form.reset();
 		setError("")
