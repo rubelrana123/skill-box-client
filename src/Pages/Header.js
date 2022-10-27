@@ -113,6 +113,7 @@ const Header = () => {
 							>
 								Login
 							</NavLink>
+							
 						</li>
 						</>
 						}
@@ -134,6 +135,18 @@ const Header = () => {
 			 </>
     </span>
 					</div>
+  <div className='bg-blue-400'>
+		<label for="toggleFour" class="flex   cursor-pointer select-none items-center">
+  <div class="relative">
+    <input type="checkbox" id="toggleFour" class="sr-only" />
+    <div class="box bg-dark block h-8 w-14 rounded-full"></div>
+    <div
+      class="dot absolute left-1 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-white transition"
+    ></div>
+  </div>
+</label>
+	</div>
+
 					</ul>
 					<div className='lg:hidden'>
 						<button
@@ -293,6 +306,15 @@ const Header = () => {
     </span>
 					
 									</div>
+									<label for="toggleFour" class="flex cursor-pointer select-none items-center">
+  <div class="relative  bg-blue-300">
+    <input type="checkbox" id="toggleFour" class="sr-only" />
+    <div class="box bg-dark block h-8 w-14 rounded-full"></div>
+    <div
+      class="dot absolute left-1 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-white transition"
+    ></div>
+  </div>
+</label>
 										</ul>
 									</nav>
 								</div>
