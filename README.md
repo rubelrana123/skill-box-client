@@ -7,7 +7,8 @@ An Skill development  Platform for Programmer.
 Hosted in Netlify -> [SKILL_BOXX](https://skill-boxx.web.app/)
 
 ## Private Repo [Link](https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-rubelrana123)
-## Server Site [Link](https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-rubelrana123)
+## Server Repo [Link](https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-rubelrana123)
+## Server Link [Link](https://skill-box-server-rubelrana123.vercel.app/courses)
 
 ***
 
