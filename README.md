@@ -11,7 +11,7 @@ Hosted in Netlify -> [SKILL_BOXX](https://skill-boxx.web.app/)
 
 ***
 
-##Features
+##`Features`
 * Skill Development COurse
 * Authentecation with Firebase(signin, signout, verify, updateprofile, email & password Authentication)
 * create Server Side and get custom API

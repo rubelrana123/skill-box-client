@@ -138,7 +138,7 @@ const Header = () => {
     </span>
 					</div>
 						<div className="text-2xl flex gap-2 " onClick={toggleDarkMode}>
-					{darkMode ?  <>  <FaToggleOn className='mt-2'></FaToggleOn> <small>Dark</small>  </>: <> <small>light</small> <FaToggleOff className='mt-2'></FaToggleOff></>  }
+					{darkMode ?  <>  <FaToggleOn className='mt-2'></FaToggleOn> <small className='font-semibold'>Dark</small>  </>: <> <small className='font-semibold '>light</small> <FaToggleOff className='mt-2'></FaToggleOff></>  }
 				</div>
  
 
