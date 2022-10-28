@@ -4,7 +4,7 @@ import FAQDetails from './FAQDetails';
 
 const FAQ = () => {
   const faqdata = useLoaderData();
-  console.log(faqdata);
+  // console.log(faqdata);
   return (
     <div className='bg-blue-200'>
      <h1 className='text-4xl  text-blue-600 py-6'>Frequently Asked Questions about Soft Skills</h1>

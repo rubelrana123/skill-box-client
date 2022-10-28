@@ -6,7 +6,7 @@ import { AuthContext } from '../contexts/UserContext';
 const Register = () => {
   const [error,setError] = useState('');
   const {createUser, verifyEmail, profileUpdate} = useContext(AuthContext);
-  console.log(verifyEmail);
+  // console.log(verifyEmail);
 const handleForm = (e) => {
  e.preventDefault();
  const form = e.target;
@@ -14,12 +14,12 @@ const handleForm = (e) => {
  const email = form.email.value;
  const password = form.password.value;
  const photoURL = form.photoURL.value;
- console.log(email, password, name);
+//  console.log(email, password, name);/
  
  createUser(email, password).then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    console.log(user);
+    // console.log(user);
     toast.success('Register SuccessFully',{autoClose : 200});
   
     setError('');

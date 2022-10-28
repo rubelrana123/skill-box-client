@@ -9,6 +9,11 @@ const UserContext = ({children}) => {
   const [loading, setLoading] = useState(true);
  const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
+	const [darkMode, setDarkMode] = useState(true);
+	function toggleDarkMode() {
+        setDarkMode(prevDarkMode => !prevDarkMode);
+				// console.log(darkMode);
+    }
   const createUser = (email, password) =>{
     return createUserWithEmailAndPassword(auth, email, password)
   };
@@ -42,14 +47,14 @@ useEffect (() => {
   const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
     setuser(currentUser);
     setLoading(false)
-    console.log(currentUser);
-    console.log("on state changed");
+    // console.log(currentUser);
+    // console.log("on state changed");
  
 });
 
 return () => unSubscribe();
 }, [])
-  const AuthInfo = {user,loading, createUser,gitSignin, verifyEmail, profileUpdate, signin,signout, googleSignin, forgetPassword}
+  const AuthInfo = {user,loading, createUser,gitSignin,darkMode,toggleDarkMode, verifyEmail, profileUpdate, signin,signout, googleSignin, forgetPassword}
   return (
     <div>
       <AuthContext.Provider value = {AuthInfo}>

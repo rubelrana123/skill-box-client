@@ -10,7 +10,7 @@ const Login = () => {
 	const location = useLocation();
 	const navigate = useNavigate();
 	const from = location?.state?.from.pathname || "/"
-  const {user, signin, googleSignin, forgetPassword, gitSignin} = useContext(AuthContext);
+  const {user, signin, googleSignin, forgetPassword, gitSignin, darkMode} = useContext(AuthContext);
   console.log(user);
 
 const handleForm = (e) => {
@@ -19,6 +19,17 @@ const handleForm = (e) => {
  const form = e.target;
  const email = form.email.value;
  const password = form.password.value;
+
+ const test = /\S+@\S+\.\S+/.test(email);
+ if (!test) {
+	 setError('please provide a valid email');
+	 return;
+ } 
+  if (password.length < 6) {
+            setError('Password should be 6 characters or more.');
+            return;
+        }
+
  console.log(email, password);
 
  signin(email, password).then((userCredential) => {
@@ -33,11 +44,15 @@ const handleForm = (e) => {
   .catch((error) => {
     const errorMessage = error.message;
     setError(errorMessage);
+		
+
 
   });
 
 }
-
+		if(error.includes('wrong-password')){
+		setError('Wrong password')
+		}
 
 	const handleGoogleSignIn = () =>{
 		googleSignin()
@@ -66,7 +81,7 @@ const handleForm = (e) => {
 			})
 			.catch((error) => {
 				// Handle Errors here.
-				const errorCode = error.code;
+		 
 				const errorMessage = error.message;
 				
 				 console.log(errorMessage);
@@ -94,7 +109,7 @@ const handleForm = (e) => {
 	}
   
   return (
-    <div className='p-12'>
+    <div className={`p-12 ${darkMode ? 'bg-gray-600' : 'bg-gray-300'}`}>
       <div className="w-full mx-auto max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
 	<h1 className="text-2xl font-bold text-center">Login</h1>
 	<form className="space-y-6  " onSubmit={handleForm}>

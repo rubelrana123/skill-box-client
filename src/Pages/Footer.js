@@ -7,39 +7,43 @@ const Footer = () => {
       <footer className="p-6 dark:bg-[#0b275a] dark:text-white]">
 	<div className="container grid grid-cols-2 mx-auto gap-x-3 gap-y-8 sm:grid-cols-3 md:grid-cols-4 text-blue-400">
 		<div className="flex flex-col space-y-4">
-			<h2 className="font-medium">Getting started</h2>
+			<h2 className="font-medium">Learn</h2>
 			<div className="flex flex-col space-y-2 text-sm text-white">
-				<Link rel="noopener noreferrer" to="/">Installation</Link>
-				<Link rel="noopener noreferrer" to="/">Release Notes</Link>
-				<Link rel="noopener noreferrer" to="/">Upgrade Guide</Link>
-				<Link rel="noopener noreferrer" to="/">Using with Preprocessors</Link>
-				<Link rel="noopener noreferrer" to="/">Optimizing for Production</Link>
-				<Link rel="noopener noreferrer" to="/">Browser Support</Link>
-				<Link rel="noopener noreferrer" to="/">IntelliSense</Link>
+				<Link rel="noopener noreferrer" to="/">Algorithms</Link>
+				<Link rel="noopener noreferrer" to="/">Data Structures  </Link>
+				<Link rel="noopener noreferrer" to="/">Machine learning    </Link>
+				<Link rel="noopener noreferrer" to="/">CS Subjects
+  </Link>
+				<Link rel="noopener noreferrer" to="/">Video Tutorials</Link>
+				<Link rel="noopener noreferrer" to="/">
+Courses  </Link>
+				<Link rel="noopener noreferrer" to="/">Data science</Link>
 			</div>
 		</div>
 		<div className="flex flex-col space-y-4">
-			<h2 className="font-medium">Core Concepts</h2>
+			<h2 className="font-medium">Language</h2>
 			<div className="flex flex-col space-y-2 text-sm text-white">
-				<Link rel="noopener noreferrer" to="/">Utility-First</Link>
-				<Link rel="noopener noreferrer" to="/">Responsive Design</Link>
-				<Link rel="noopener noreferrer" to="/">Hover, Focus, &amp; Other States</Link>
-				<Link rel="noopener noreferrer" to="/">Dark Mode</Link>
-				<Link rel="noopener noreferrer" to="/">Adding Base Styles</Link>
-				<Link rel="noopener noreferrer" to="/">Extracting Components</Link>
-				<Link rel="noopener noreferrer" to="/">Adding New Utilities</Link>
+				<Link rel="noopener noreferrer" to="/">Javascript</Link>
+				<Link rel="noopener noreferrer" to="/">Responsive Python</Link>
+				<Link rel="noopener noreferrer" to="/">C</Link>
+				<Link rel="noopener noreferrer" to="/">C++</Link>
+				<Link rel="noopener noreferrer" to="/">C#</Link>
+				<Link rel="noopener noreferrer" to="/">Java  </Link>
+				<Link rel="noopener noreferrer" to="/"> SQL </Link>
 			</div>
 		</div>
 		<div className="flex flex-col space-y-4">
-			<h2 className="font-medium">Customization</h2>
+			<h2 className="font-medium">Contribute</h2>
 			<div className="flex flex-col space-y-2 text-sm text-white">
-				<Link rel="noopener noreferrer" to="/">Configuration</Link>
-				<Link rel="noopener noreferrer" to="/">Theme Configuration</Link>
-				<Link rel="noopener noreferrer" to="/">Breakpoints</Link>
-				<Link rel="noopener noreferrer" to="/">Customizing Colors</Link>
-				<Link rel="noopener noreferrer" to="/">Customizing Spacing</Link>
-				<Link rel="noopener noreferrer" to="/">Configuring Variants</Link>
-				<Link rel="noopener noreferrer" to="/">Plugins</Link>
+				<Link rel="noopener noreferrer" to="/">Write an Article
+</Link>
+				<Link rel="noopener noreferrer" to="/">Improve an Article  </Link>
+				<Link rel="noopener noreferrer" to="/">Pick Topics to Write</Link>
+				<Link rel="noopener noreferrer" to="/">Write Interview Experience  </Link>
+				<Link rel="noopener noreferrer" to="/">
+Internships</Link>
+				<Link rel="noopener noreferrer" to="/">Video Internship  </Link>
+				<Link rel="noopener noreferrer" to="/">Job Placement</Link>
 			</div>
 		</div>
 		<div className="flex flex-col space-y-4">

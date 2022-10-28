@@ -3,13 +3,14 @@ import toast from 'react-hot-toast';
 import { NavLink } from 'react-router-dom';
 import logo from '../asserts/logo1.png'
 import { AuthContext } from '../contexts/UserContext';
-import { FaUserSecret } from "react-icons/fa";
+import { FaToggleOff, FaToggleOn, FaUserSecret } from "react-icons/fa";
 const Header = () => {
-	const {signout, user} = useContext(AuthContext);
+	const {signout, user, darkMode, toggleDarkMode} = useContext(AuthContext);
 	
 	
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
+
+ 
 	const handleLogout = () =>{
 		signout().then(() => {
       toast.success(" Sign-out successful")
@@ -21,8 +22,9 @@ const Header = () => {
 	}
 
 	return (
-		<div className='bg-[#FFF3] shadow-md'>
+		<div className= {`shadow-xl ${darkMode ? "bg-gray-500" : "bg-white"}`}>
 			<div className='px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 ' >
+			
 				<div className='relative flex items-center justify-between'>
 					<NavLink
 						to='/'
@@ -31,7 +33,7 @@ const Header = () => {
 						className='inline-flex items-center'
 					>
 						<img src={logo}  className= "h-10" alt="" />
-						<span className='ml-2 text-xl font-bold tracking-wide text-gray-800'>
+						<span className='ml-2 text-2xl font-bold tracking-wide text-black'>
 							Skill Box
 						</span>
 					</NavLink>
@@ -127,25 +129,18 @@ const Header = () => {
 			
 			
 	>
-       {user?.displayName ? <p>{user.displayName} </p>  : <FaUserSecret></FaUserSecret> }
+       {user?.displayName ? <p>{user.displayName} </p>  : " " }
       </span>
             <>
 			       { user?.photoURL ?
-					  <img className='rounded-[50%] h-10' src={user?.photoURL} alt="userPhoto"/>  : " " }
+					  <img className='rounded-[50%] h-10' src={user?.photoURL} alt="userPhoto"/>  : <FaUserSecret></FaUserSecret>}
 			 </>
     </span>
 					</div>
-  <div className='bg-blue-400'>
-		<label for="toggleFour" class="flex   cursor-pointer select-none items-center">
-  <div class="relative">
-    <input type="checkbox" id="toggleFour" class="sr-only" />
-    <div class="box bg-dark block h-8 w-14 rounded-full"></div>
-    <div
-      class="dot absolute left-1 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-white transition"
-    ></div>
-  </div>
-</label>
-	</div>
+						<div className="text-2xl flex gap-2 " onClick={toggleDarkMode}>
+					{darkMode ?  <>  <FaToggleOn className='mt-2'></FaToggleOn> <small>Dark</small>  </>: <> <small>light</small> <FaToggleOff className='mt-2'></FaToggleOff></>  }
+				</div>
+ 
 
 					</ul>
 					<div className='lg:hidden'>
@@ -172,7 +167,7 @@ const Header = () => {
 						</button>
 						{isMenuOpen && (
 							<div className='z-10 absolute top-0 left-0 w-full'>
-								<div className='p-5 bg-white border rounded shadow-sm'>
+								<div className={`p-5  border rounded shadow-sm  ${darkMode ? "bg-gray-400" : "bg-white"}`}>
 									<div className='flex items-center justify-between mb-4'>
 										<div>
 											<NavLink
@@ -289,32 +284,27 @@ const Header = () => {
 						}
 						
 
-					<div className='flex justify-center'>
+			<div className='flex align-middle justify-center '>
 				<span  className="group relative">
       <span
 			
-			className =  {` ${user?.displayName && `pointer-events-none absolute -top-10 right-1/2 -translate-x-1/2  bg-black px-2 py-1 text-white opacity-0 transition before:absolute before:left-1/2 before:top-full before:-translate-x-1/2 before:border-4 before:border-transparent group-hover:opacity-100`}`}
+			className =  {` ${user?.displayName && `pointer-events-none absolute -bottom-10 right-1/2 -translate-x-1/2  bg-black px-2 py-1 text-white opacity-0 transition before:absolute before:left-1/2 before:top-full before:-translate-x-1/2 before:border-4 before:border-transparent group-hover:opacity-100`}`}
 			
 			
 	>
-      {user?.displayName ? <p>{user.displayName} </p>  : <FaUserSecret></FaUserSecret> }
+       {user?.displayName ? <p>{user.displayName} </p>  : " " }
       </span>
-       <>
+            <>
 			       { user?.photoURL ?
-					  <img className='rounded-[50%] h-10' src={user?.photoURL} alt="userPhoto"/>  : <FaUserSecret className='h-8'></FaUserSecret> }
+					  <img className='rounded-[50%] h-10' src={user?.photoURL} alt="userPhoto"/>  : <FaUserSecret></FaUserSecret>}
 			 </>
     </span>
-					
-									</div>
-									<label for="toggleFour" class="flex cursor-pointer select-none items-center">
-  <div class="relative  bg-blue-300">
-    <input type="checkbox" id="toggleFour" class="sr-only" />
-    <div class="box bg-dark block h-8 w-14 rounded-full"></div>
-    <div
-      class="dot absolute left-1 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-white transition"
-    ></div>
-  </div>
-</label>
+					</div>
+						<div className="h-6  text-2xl flex align-middle justify-center   gap-2 " onClick={toggleDarkMode}>
+					{darkMode ?  <>  <FaToggleOn className='mt-2'></FaToggleOn> <small>Dark</small>  </>: <> <small>light</small> <FaToggleOff className='mt-2'></FaToggleOff></>  }
+				</div>
+ 
+	 
 										</ul>
 									</nav>
 								</div>

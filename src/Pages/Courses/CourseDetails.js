@@ -11,12 +11,12 @@ const ref = React.createRef();
 
 const CourseDetails = () => {
   const course = useLoaderData();
-  console.log(course);
+  // console.log(course);
   const {title, author, description, info,id, rating,image} = course;
 
   return (
     <div  ref={ref}  >
-    <div className='flex place-content-center py-5'>
+    <div className='flex place-content-center lg:py-5 p-5'>
       <div className="max-w-2xl overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
      <div className='flex justify-between bg-gray-500 py-2 px-3'>
          <p className="  text-2xl text-start font-semibold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-600">{title}</p>
