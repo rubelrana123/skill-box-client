@@ -4,7 +4,7 @@ An Skill development  Platform for Programmer.
 
 
 ## Live Link
-Hosted in Netlify -> [SKILL_BOXX](https://skill-boxx.web.app/)
+Hosted in firebase -> [SKILL_BOXX](https://skill-boxx.web.app/)
 
 ## Private Repo [Link](https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-rubelrana123)
 ## Server Repo [Link](https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-rubelrana123)
