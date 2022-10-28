@@ -11,7 +11,7 @@ const Login = () => {
 	const navigate = useNavigate();
 	const from = location?.state?.from.pathname || "/"
   const {user, signin, googleSignin, forgetPassword, gitSignin, darkMode} = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
 
 const handleForm = (e) => {
 
@@ -34,7 +34,7 @@ const handleForm = (e) => {
 
  signin(email, password).then((userCredential) => {
     const user = userCredential.user;
-    console.log(user);
+    // console.log(user);
 		navigate(from, {replace : true})
 		toast.success("Login Successfully..")
 		form.reset();
