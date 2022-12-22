@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { FaMinus, FaPlus } from 'react-icons/fa';
-import { AuthContext } from '../../contexts/UserContext';
+ 
 
 const BlogQuestion = ({info}) => {
  
@@ -9,7 +9,7 @@ const BlogQuestion = ({info}) => {
   return (
 		<div >
       <div className='flex align-center justify-center flex-col'>
-			<div  onClick={() => setOpen(!open)} className='flex justify-between py-5 px-2 w-auto bg-blue-300 w-full border'>
+			<div  onClick={() => setOpen(!open)} className='flex justify-between py-5 px-2 w-auto bg-blue-300 border'>
 				<h1><span className='text-red-700'>Question : </span> {question}</h1>
 				<div className='h-6 w-6 text-blue-500'>
           {
